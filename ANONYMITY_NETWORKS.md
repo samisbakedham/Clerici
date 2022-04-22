@@ -1,6 +1,6 @@
-# Anonymity Networks with UTTC
+# Anonymity Networks with CLC
 
-Currently only Tor and I2P have been integrated into UTTC. The usage of
+Currently only Tor and I2P have been integrated into CLC. The usage of
 these networks is still considered experimental - there are a few pessimistic
 cases where privacy is leaked. The design is intended to maximize privacy of
 the source of a transaction by broadcasting it over an anonymity network, while
@@ -39,7 +39,7 @@ with additional exclusive IPv4 address(es).
 ### Outbound Connections
 
 Connecting to an anonymous address requires the command line option
-`--tx-proxy` which tells `uttcd` the ip/port of a socks proxy provided by a
+`--tx-proxy` which tells `clcd` the ip/port of a socks proxy provided by a
 separate process. On most systems the configuration will look like:
 
 ```
@@ -47,7 +47,7 @@ separate process. On most systems the configuration will look like:
 --tx-proxy i2p,127.0.0.1:9000
 ```
 
-which tells `uttcd` that ".onion" p2p addresses can be forwarded to a socks
+which tells `clcd` that ".onion" p2p addresses can be forwarded to a socks
 proxy at IP 127.0.0.1 port 9050 with a max of 10 outgoing connections and
 ".b32.i2p" p2p addresses can be forwarded to a socks proxy at IP 127.0.0.1 port
 9000 with the default max outgoing connections.
@@ -66,7 +66,7 @@ seed nodes on ALL networks, which will typically be undesirable.
 ### Inbound Connections
 
 Receiving anonymity connections is done through the option
-`--anonymous-inbound`. This option tells `uttcd` the inbound address, network
+`--anonymous-inbound`. This option tells `clcd` the inbound address, network
 type, and max connections:
 
 ```
@@ -74,24 +74,24 @@ type, and max connections:
 --anonymous-inbound cmeua5767mz2q5jsaelk2rxhf67agrwuetaso5dzbenyzwlbkg2q.b32.i2p:5000,127.0.0.1:30000
 ```
 
-which tells `uttcd` that a max of 25 inbound Tor connections are being
-received at address "rveahdfho7wo4b2m.onion:28083" and forwarded to `uttcd`
+which tells `clcd` that a max of 25 inbound Tor connections are being
+received at address "rveahdfho7wo4b2m.onion:28083" and forwarded to `clcd`
 localhost port 28083, and a default max I2P connections are being received at
 address "cmeua5767mz2q5jsaelk2rxhf67agrwuetaso5dzbenyzwlbkg2q.b32.i2p:5000" and
-forwarded to `uttcd` localhost port 30000.
+forwarded to `clcd` localhost port 30000.
 These addresses will be shared with outgoing peers, over the same network type,
 otherwise the peer will not be notified of the peer address by the proxy.
 
 ### Wallet RPC
 
 An anonymity network can be configured to forward incoming connections to a
-`uttcd` RPC port - which is independent from the configuration for incoming
+`clcd` RPC port - which is independent from the configuration for incoming
 P2P anonymity connections. The anonymity network (Tor/i2p) is
 [configured in the same manner](#configuration), except the localhost port
 must be the RPC port (typically 18081 for mainnet) instead of the p2p port:
 
 ```
-HiddenServiceDir /var/lib/tor/data/UTTC
+HiddenServiceDir /var/lib/tor/data/CLC
 HiddenServicePort 18081 127.0.0.1:18081
 ```
 
@@ -133,13 +133,13 @@ Tor must be configured for hidden services. An example configuration ("torrc")
 might look like:
 
 ```
-HiddenServiceDir /var/lib/tor/data/UTTC
+HiddenServiceDir /var/lib/tor/data/CLC
 HiddenServicePort 28083 127.0.0.1:28083
 ```
 
-This will store key information in `/var/lib/tor/data/UTTC` and will forward
+This will store key information in `/var/lib/tor/data/CLC` and will forward
 "Tor port" 28083 to port 28083 of ip 127.0.0.1. The file
-`/usr/lib/tor/data/UTTC/hostname` will contain the ".onion" address for use
+`/usr/lib/tor/data/CLC/hostname` will contain the ".onion" address for use
 with `--anonymous-inbound`.
 
 I2P must be configured with a standard server tunnel. Configuration differs by
@@ -158,7 +158,7 @@ sees a transaction over Tor, it could _assume_ (possibly incorrectly) that the
 transaction originated from the peer. If both the Tor connection and an
 IPv4/IPv6 connection have timestamps that are approximately close in value they
 could be used to link the two connections. This is less likely to happen if the
-system clock is fairly accurate - many peers on the UTTC network should have
+system clock is fairly accurate - many peers on the CLC network should have
 similar timestamps.
 
 #### Mitigation
@@ -169,14 +169,14 @@ the system clock is noticeably off (and therefore more fingerprintable),
 linking the public IPv4/IPv6 connections with the anonymity networks will be
 more difficult.
 
-### Intermittent UTTC Syncing
+### Intermittent CLC Syncing
 
-If a user only runs `uttcd` to send a transaction then quit, this can also
+If a user only runs `clcd` to send a transaction then quit, this can also
 be used by an ISP to link a user to a transaction.
 
 #### Mitigation
 
-Run `uttcd` as often as possible to conceal when transactions are being sent.
+Run `clcd` as often as possible to conceal when transactions are being sent.
 Future versions will also have peers that first receive a transaction over an
 anonymity network delay the broadcast to public peers by a randomized amount.
 This will not completely mitigate a user who syncs up sends then quits, in
@@ -208,20 +208,20 @@ signature. This issue was (primarily) raised by @secparam on Twitter.
 
 #### Mitigation
 
-`uttcd` currently selects two outgoing connections every 5 minutes for
+`clcd` currently selects two outgoing connections every 5 minutes for
 transmitting transactions over I2P/Tor. Using outgoing connections prevents an
 adversary from making many incoming connections to obtain information (this
 technique was taken from Dandelion). Outgoing connections also do not have a
 persistent public key identity - the creation of a new circuit will generate
 a new public key identity. The lock time on a change address is ~20 minutes, so
-`uttcd` will have rotated its selected outgoing connections several times in
+`clcd` will have rotated its selected outgoing connections several times in
 most cases. However, the number of outgoing connections is typically a small
 fixed number, so there is a decent probability of re-use with the same public
 key identity.
 
 @secparam (twitter) recommended changing circuits (Tor) as an additional
 precaution. This is likely not a good idea - forcibly requesting Tor to change
-circuits is observable by the ISP. Instead, `uttcd` should likely disconnect
+circuits is observable by the ISP. Instead, `clcd` should likely disconnect
 from peers occasionally. Tor will rotate circuits every ~10 minutes, so
 establishing new connections will use a new public key identity and make it
 more difficult for the hidden service to link information. This process will
