@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2020, The Monero Project
+// Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
 // 
@@ -423,7 +423,8 @@ uint64_t sum_amount(const std::vector<cryptonote::tx_source_entry>& sources);
 
 bool construct_miner_tx_manually(size_t height, uint64_t already_generated_coins,
                                  const cryptonote::account_public_address& miner_address, cryptonote::transaction& tx,
-                                 uint64_t fee, cryptonote::keypair* p_txkey = nullptr);
+                                 uint64_t fee, uint8_t hf_version = 1,
+                                 cryptonote::keypair* p_txkey = nullptr);
 
 bool construct_tx_to_key(const std::vector<test_event_entry>& events, cryptonote::transaction& tx,
                          const cryptonote::block& blk_head, const cryptonote::account_base& from, const var_addr_t& to, uint64_t amount,
@@ -648,11 +649,9 @@ public:
       bvc.m_verifivation_failed = true;
 
     cryptonote::block blk;
-    std::stringstream ss;
-    ss << sr_block.data;
-    binary_archive<false> ba(ss);
+    binary_archive<false> ba{epee::strspan<std::uint8_t>(sr_block.data)};
     ::serialization::serialize(ba, blk);
-    if (!ss.good())
+    if (!ba.good())
     {
       blk = cryptonote::block();
     }
@@ -671,11 +670,9 @@ public:
     bool tx_added = pool_size + 1 == m_c.get_pool_transactions_count();
 
     cryptonote::transaction tx;
-    std::stringstream ss;
-    ss << sr_tx.data;
-    binary_archive<false> ba(ss);
+    binary_archive<false> ba{epee::strspan<std::uint8_t>(sr_tx.data)};
     ::serialization::serialize(ba, tx);
-    if (!ss.good())
+    if (!ba.good())
     {
       tx = cryptonote::transaction();
     }
@@ -840,7 +837,7 @@ inline bool do_replay_file(const std::string& filename)
     { \
       for (size_t msidx = 0; msidx < total; ++msidx) \
         account[msidx].generate(); \
-      make_multisig_accounts(account, threshold); \
+      CHECK_AND_ASSERT_MES(make_multisig_accounts(account, threshold), false, "Failed to make multisig accounts."); \
     } while(0)
 
 #define MAKE_ACCOUNT(VEC_EVENTS, account) \
@@ -971,11 +968,13 @@ inline bool do_replay_file(const std::string& filename)
     std::list<cryptonote::transaction> SET_NAME; \
     MAKE_TX_MIX_LIST_RCT(VEC_EVENTS, SET_NAME, FROM, TO, AMOUNT, NMIX, HEAD);
 
-#define MAKE_MINER_TX_AND_KEY_MANUALLY(TX, BLK, KEY)                                                      \
+#define MAKE_MINER_TX_AND_KEY_AT_HF_MANUALLY(TX, BLK, HF_VERSION, KEY)                                    \
   transaction TX;                                                                                         \
   if (!construct_miner_tx_manually(get_block_height(BLK) + 1, generator.get_already_generated_coins(BLK), \
-    miner_account.get_keys().m_account_address, TX, 0, KEY))                                              \
+    miner_account.get_keys().m_account_address, TX, 0, HF_VERSION, KEY))                                  \
     return false;
+
+#define MAKE_MINER_TX_AND_KEY_MANUALLY(TX, BLK, KEY) MAKE_MINER_TX_AND_KEY_AT_HF_MANUALLY(TX, BLK, 1, KEY)
 
 #define MAKE_MINER_TX_MANUALLY(TX, BLK) MAKE_MINER_TX_AND_KEY_MANUALLY(TX, BLK, 0)
 
@@ -1084,7 +1083,7 @@ inline bool do_replay_file(const std::string& filename)
   }
 
 #define QUOTEME(x) #x
-#define DEFINE_TESTS_ERROR_CONTEXT(text) const char* perr_context = text;
+#define DEFINE_TESTS_ERROR_CONTEXT(text) const char* perr_context = text; (void) perr_context;
 #define CHECK_TEST_CONDITION(cond) CHECK_AND_ASSERT_MES(cond, false, "[" << perr_context << "] failed: \"" << QUOTEME(cond) << "\"")
 #define CHECK_EQ(v1, v2) CHECK_AND_ASSERT_MES(v1 == v2, false, "[" << perr_context << "] failed: \"" << QUOTEME(v1) << " == " << QUOTEME(v2) << "\", " << v1 << " != " << v2)
 #define CHECK_NOT_EQ(v1, v2) CHECK_AND_ASSERT_MES(!(v1 == v2), false, "[" << perr_context << "] failed: \"" << QUOTEME(v1) << " != " << QUOTEME(v2) << "\", " << v1 << " == " << v2)
