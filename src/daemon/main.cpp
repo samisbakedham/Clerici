@@ -100,8 +100,8 @@ uint16_t parse_public_rpc_port(const po::variables_map &vm)
 
   if (address->is_loopback() || address->is_local())
   {
-    MLOG_RED(el::Level::Warning, "--" << public_node_arg.name 
-      << " is enabled, but RPC server " << address->str() 
+    MLOG_RED(el::Level::Warning, "--" << public_node_arg.name
+      << " is enabled, but RPC server " << address->str()
       << " may be unreachable from outside, please check RPC server bind address");
   }
 
@@ -179,8 +179,8 @@ int main(int argc, char const * argv[])
   try {
 	// Print our fork's genesis block, comment out after modifying cryptonote_config.h GENESIS_TX constant
 	// Be sure all GENESIS_TX constants are EMPTY, e.g. = ""; before un-commenting the next 2 lines below
-	//print_genesis_tx_hex(0);    // 0 for mainnet, 1 for testnet
-	//return 0;		    // building both is optional, testnet can adopt mainnet genesis TX hash.
+	print_genesis_tx_hex(0);    // 0 for mainnet, 1 for testnet
+	return 0;		    // building both is optional, testnet can adopt mainnet genesis TX hash.
 
     // TODO parse the debug options like set log level right here at start
 
