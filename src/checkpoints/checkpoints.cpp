@@ -181,20 +181,21 @@ namespace cryptonote
   bool checkpoints::init_default_checkpoints(network_type nettype)
   {
     if (nettype == TESTNET)
-    {  /*  ADD_CHECKPOINT2(0,          "88aea3cfbc76bc013d9e1b5e907ffe65525bc4985dc49e824ce4eaddc7c2c90f", "0x1");           // v1 Genesis block
-      ADD_CHECKPOINT2(1,     "e4e64ce4bef431a5112ffeb6b8e83bd66e9e94d625726f7d2064c99bf6de659a", "0x2");		        // Hard Fork v14 Applied
+    {
+      ADD_CHECKPOINT2(0,          "88aea3cfbc76bc013d9e1b5e907ffe65525bc4985dc49e824ce4eaddc7c2c90f", "0x1");           // v1 Genesis block
+      /*ADD_CHECKPOINT2(1,     "e4e64ce4bef431a5112ffeb6b8e83bd66e9e94d625726f7d2064c99bf6de659a", "0x2");		        // Hard Fork v14 Applied
       ADD_CHECKPOINT2(1058600, "12904f6b4d9e60fd875674e07147d2c83d6716253f046af7b894c3e81da7e1bd", "0x971efd119");
       ADD_CHECKPOINT2(1450000, "87562ca6786f41556b8d5b48067303a57dc5ca77155b35199aedaeca1550f5a0", "0xa639e2930e");*/
       return true;
     }
     if (nettype == STAGENET)
     {
-      /*  ADD_CHECKPOINT2(0,          "88aea3cfbc76bc013d9e1b5e907ffe65525bc4985dc49e824ce4eaddc7c2c90f", "0x1");           // v1 Genesis block
-      ADD_CHECKPOINT2(5,       "4abe59b2d014811fdef09055be0cb98b7a21862e4cd75515e1eab6f17d26623b", "0x31b");
+      ADD_CHECKPOINT2(0,          "88aea3cfbc76bc013d9e1b5e907ffe65525bc4985dc49e824ce4eaddc7c2c90f", "0x1");           // v1 Genesis block
+      /*ADD_CHECKPOINT2(5,       "4abe59b2d014811fdef09055be0cb98b7a21862e4cd75515e1eab6f17d26623b", "0x31b");
       ADD_CHECKPOINT2(550000,  "409f68cddd8e74b37469b41c1e61250d81c5776b42264f416d5d27c4626383ed", "0x5f3d4d03e");*/
       return true;
     }
-  /*  ADD_CHECKPOINT2(0,          "88aea3cfbc76bc013d9e1b5e907ffe65525bc4985dc49e824ce4eaddc7c2c90f", "0x1");             // v1 Genesis block
+    ADD_CHECKPOINT2(0,          "88aea3cfbc76bc013d9e1b5e907ffe65525bc4985dc49e824ce4eaddc7c2c90f", "0x1");             // v1 Genesis block
     ADD_CHECKPOINT2(1,          "dc96ab3cba241c533cb3e7f72d7218126328fca6a004d9aefc5a10f8fe5a7590", "0x2");		        // Hard Fork v14 Applied
     ADD_CHECKPOINT2(9,          "daf7450cf3f8351d57cca2a5dcc1702d6b6c163733b57407ed52c1957850fb12", "0x16b60");         // 10th block
     ADD_CHECKPOINT2(99,         "17701c2c597519d1edd388a45b91f189bac848ee7588618aa36f34964ab591bf", "0x201999");        // 100th block
@@ -203,7 +204,7 @@ namespace cryptonote
 	ADD_CHECKPOINT2(9999,       "2e1a615dab8ef67e7ab2c92fc53eba18d172d187339e5f4675985d7795500d76", "0x22acc291");      // 10,000th block
 	ADD_CHECKPOINT2(19999,      "6e82e0d5785af8b4153509429477b09285add1bfcc988ae70656ec39360489bd", "0x57f2bd85");      // 20,000th block
 	ADD_CHECKPOINT2(20805,      "c193017fd573d325225847434aeddc489fb1a938417bd2d25a45313876d01860", "0x69060e30");      // Post Fracture Block
-    ADD_CHECKPOINT2(10000, "c758b7c81f928be3295d45e230646de8b852ec96a821eac3fea4daf3fcac0ca2", "0x60a91390");
+    /*ADD_CHECKPOINT2(10000, "c758b7c81f928be3295d45e230646de8b852ec96a821eac3fea4daf3fcac0ca2", "0x60a91390");
     ADD_CHECKPOINT2(22231, "7cb10e29d67e1c069e6e11b17d30b809724255fee2f6868dc14cfc6ed44dfb25", "0x1e288793d");
     ADD_CHECKPOINT2(29556, "53c484a8ed91e4da621bb2fa88106dbde426fe90d7ef07b9c1e5127fb6f3a7f6", "0x71f64cce8");
     ADD_CHECKPOINT2(50000, "0fe8758ab06a8b9cb35b7328fd4f757af530a5d37759f9d3e421023231f7b31c", "0x893044b400");

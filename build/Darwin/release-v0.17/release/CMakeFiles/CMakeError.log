@@ -1,0 +1,80 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Checking whether the ASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
+Apple clang version 13.0.0 (clang-1300.0.29.30)
+Target: arm64-apple-darwin21.2.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+Determining if the -Wl,--no-undefined linker flag is supported failed with the following output:
+Change Dir: /Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_97983/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_97983.dir/build.make CMakeFiles/cmTC_97983.dir/build
+Building C object CMakeFiles/cmTC_97983.dir/CheckLinkerFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,--no-undefined  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk   -Wl,--no-undefined -MD -MT CMakeFiles/cmTC_97983.dir/CheckLinkerFlag.c.o -MF CMakeFiles/cmTC_97983.dir/CheckLinkerFlag.c.o.d -o CMakeFiles/cmTC_97983.dir/CheckLinkerFlag.c.o -c /Users/safahi/Desktop/uttc-v1.1.2.1/cmake/CheckLinkerFlag.c
+clang: warning: -Wl,--no-undefined: 'linker' input unused [-Wunused-command-line-argument]
+clang: warning: -Wl,--no-undefined: 'linker' input unused [-Wunused-command-line-argument]
+Linking C executable cmTC_97983
+/opt/homebrew/Cellar/cmake/3.23.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97983.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc -Wl,--no-undefined  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_97983.dir/CheckLinkerFlag.c.o -o cmTC_97983 
+ld: unknown option: --no-undefined
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [cmTC_97983] Error 1
+make[1]: *** [cmTC_97983/fast] Error 2
+
+
+
+Determining if the function explicit_bzero exists in the c failed with the following output:
+Change Dir: /Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8c5c8/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_8c5c8.dir/build.make CMakeFiles/cmTC_8c5c8.dir/build
+Building C object CMakeFiles/cmTC_8c5c8.dir/CheckFunctionExists.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=explicit_bzero -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -MD -MT CMakeFiles/cmTC_8c5c8.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_8c5c8.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_8c5c8.dir/CheckFunctionExists.c.o -c /opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8c5c8
+/opt/homebrew/Cellar/cmake/3.23.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8c5c8.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=explicit_bzero -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_8c5c8.dir/CheckFunctionExists.c.o -o cmTC_8c5c8   -L/Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp/strings.h  -Wl,-rpath,/Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp/strings.h -lc 
+ld: warning: directory not found for option '-L/Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp/strings.h'
+Undefined symbols for architecture arm64:
+  "_explicit_bzero", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [cmTC_8c5c8] Error 1
+make[1]: *** [cmTC_8c5c8/fast] Error 2
+
+
+
+Determining if the include file asm/hwcap.h exists failed with the following output:
+Change Dir: /Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fb72f/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_fb72f.dir/build.make CMakeFiles/cmTC_fb72f.dir/build
+Building C object CMakeFiles/cmTC_fb72f.dir/CheckIncludeFile.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -MD -MT CMakeFiles/cmTC_fb72f.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_fb72f.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_fb72f.dir/CheckIncludeFile.c.o -c /Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/safahi/Desktop/uttc-v1.1.2.1/build/Darwin/release-v0.17/release/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'asm/hwcap.h' file not found
+#include <asm/hwcap.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+make[2]: *** [CMakeFiles/cmTC_fb72f.dir/CheckIncludeFile.c.o] Error 1
+make[1]: *** [cmTC_fb72f/fast] Error 2
+
+
+

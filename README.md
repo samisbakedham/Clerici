@@ -1,4 +1,4 @@
-# CLC
+# UTTC
 
 Copyright (c) The Under The Table Network developers
 Portions Copyright (c) 2014-2020 The Monero Project.   
@@ -18,7 +18,7 @@ Portions Copyright (c) 2012-2013 The Cryptonote developers.
   - [Contributing](#contributing)
   - [Scheduled software upgrades](#scheduled-software-upgrades)
   - [Release staging schedule and protocol](#release-staging-schedule-and-protocol)
-  - [Compiling CLC from source](#compiling-CLC-from-source)
+  - [Compiling UTTC from source](#compiling-UTTC-from-source)
     - [Dependencies](#dependencies)
   - [Internationalization](#Internationalization)
   - [Using Tor](#using-tor)
@@ -39,29 +39,29 @@ Portions Copyright (c) 2012-2013 The Cryptonote developers.
 
 ## Introduction
 
-CLC is a private, secure, untraceable, decentralised digital currency. You are your bank, you control your funds, and nobody can trace your transfers unless you allow them to do so.
+UTTC is a private, secure, untraceable, decentralised digital currency. You are your bank, you control your funds, and nobody can trace your transfers unless you allow them to do so.
 
-**Privacy:** CLC uses a cryptographically sound system to allow you to send and receive funds without your transactions being easily revealed on the blockchain (the ledger of transactions that everyone has). This ensures that your purchases, receipts, and all transfers remain absolutely private by default.
+**Privacy:** UTTC uses a cryptographically sound system to allow you to send and receive funds without your transactions being easily revealed on the blockchain (the ledger of transactions that everyone has). This ensures that your purchases, receipts, and all transfers remain absolutely private by default.
 
 **Security:** Using the power of a distributed peer-to-peer consensus network, every transaction on the network is cryptographically secured. Individual wallets have a 25-word mnemonic seed that is only displayed once and can be written down to backup the wallet. Wallet files are encrypted with a passphrase to ensure they are useless if stolen.
 
-**Untraceability:** By taking advantage of ring signatures, a special property of a certain type of cryptography, CLC is able to ensure that transactions are not only untraceable but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.
+**Untraceability:** By taking advantage of ring signatures, a special property of a certain type of cryptography, UTTC is able to ensure that transactions are not only untraceable but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.
 
-**Decentralization:** The utility of CLC depends on its decentralised peer-to-peer consensus network - anyone should be able to run the CLC software, validate the integrity of the blockchain, and participate in all aspects of the CLC network using consumer-grade commodity hardware. Decentralization of the CLC network is maintained by software development that minimizes the costs of running the CLC software and inhibits the proliferation of specialized, non-commodity hardware.  
+**Decentralization:** The utility of UTTC depends on its decentralised peer-to-peer consensus network - anyone should be able to run the UTTC software, validate the integrity of the blockchain, and participate in all aspects of the UTTC network using consumer-grade commodity hardware. Decentralization of the UTTC network is maintained by software development that minimizes the costs of running the UTTC software and inhibits the proliferation of specialized, non-commodity hardware.  
 
 ## About this project
 
-This is the core implementation of CLC. It is open source and completely free to use without restrictions, except for those specified in the license agreement below. There are no restrictions on anyone creating an alternative implementation of CLC that uses the protocol and network in a compatible manner.
+This is the core implementation of UTTC. It is open source and completely free to use without restrictions, except for those specified in the license agreement below. There are no restrictions on anyone creating an alternative implementation of UTTC that uses the protocol and network in a compatible manner.
 
 As with many development projects, the repository on Github is considered to be the "staging" area for the latest changes. Before changes are merged into that branch on the main repository, they are tested by individual developers in their own branches, submitted as a pull request, and then subsequently tested by contributors who focus on testing and code reviews. That having been said, the repository should be carefully considered before using it in a production environment, unless there is a patch in the repository for a particular show-stopping issue you are experiencing. It is generally a better idea to use a tagged release for stability.
 
-**Anyone is welcome to contribute to CLC's codebase!** If you have a fix or code change, feel free to submit it as a pull request directly to the "master" branch. In cases where the change is relatively small or does not affect other parts of the codebase, it may be merged in immediately by any one of the collaborators. On the other hand, if the change is particularly large or complex, it is expected that it will be discussed at length either well in advance of the pull request being submitted, or even directly on the pull request.
+**Anyone is welcome to contribute to UTTC's codebase!** If you have a fix or code change, feel free to submit it as a pull request directly to the "master" branch. In cases where the change is relatively small or does not affect other parts of the codebase, it may be merged in immediately by any one of the collaborators. On the other hand, if the change is particularly large or complex, it is expected that it will be discussed at length either well in advance of the pull request being submitted, or even directly on the pull request.
 
 ## Supporting the project
 
-CLC is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially.
+UTTC is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially.
 
-The CLC donation address is: `UttcHXznLV62RLPhpq7v3e9qsEf9vNq4TZ85KjKh4w18GtP4qipYMLbCSKxxS9Yt9AJ95nUrCQVCdSLzepwDrKX42ATvb1oQYt`  viewkey (7edb969e28446019dcfcd2b13d667830fe8fd2d8ba9786b567e497d6bf1eb1bc)
+The UTTC donation address is: `UttcHXznLV62RLPhpq7v3e9qsEf9vNq4TZ85KjKh4w18GtP4qipYMLbCSKxxS9Yt9AJ95nUrCQVCdSLzepwDrKX42ATvb1oQYt`  viewkey (7edb969e28446019dcfcd2b13d667830fe8fd2d8ba9786b567e497d6bf1eb1bc)
 
 ## License
 
@@ -73,11 +73,11 @@ If you want to help out, see [CONTRIBUTING](CONTRIBUTING.md) for a set of guidel
 
 ## Scheduled software upgrades
 
-CLC uses a fixed-schedule software upgrade (hard fork) mechanism to implement new features. This means that users of CLC (end users and service providers) should run current versions and upgrade their software on a regular schedule. Software upgrades occur during the months of April and October. The required software for these upgrades will be available prior to the scheduled date. Please check the repository prior to this date for the proper CLC software version. Below is the historical schedule and the projected schedule for the next upgrade.
+UTTC uses a fixed-schedule software upgrade (hard fork) mechanism to implement new features. This means that users of UTTC (end users and service providers) should run current versions and upgrade their software on a regular schedule. Software upgrades occur during the months of April and October. The required software for these upgrades will be available prior to the scheduled date. Please check the repository prior to this date for the proper UTTC software version. Below is the historical schedule and the projected schedule for the next upgrade.
 Dates are provided in the format YYYY-MM-DD.
 
 
-| Software upgrade block height  | Date       | Fork version      | Minimum CLC version | Recommended CLC version | Details                                                                            |  
+| Software upgrade block height  | Date       | Fork version      | Minimum UTTC version | Recommended UTTC version | Details                                                                            |  
 | ------------------------------ | -----------| ----------------- | ---------------------- | -------------------------- | ---------------------------------------------------------------------------------- |
 | 0                        | 3/17/2022 | 1                | v1.0.1.1              | v1.0.1.1                  | Launch |
 
@@ -89,7 +89,7 @@ X's indicate that these details have not been determined as of commit date.
 
 Approximately three months prior to a scheduled software upgrade, a branch from master will be created with the new release version tag. Pull requests that address bugs should then be made to both master and the new release branch. Pull requests that require extensive review and testing (generally, optimizations and new features) should *not* be made to the release branch.
 
-## Compiling CLC from source
+## Compiling UTTC from source
 
 ### Dependencies
 
@@ -150,7 +150,7 @@ https://mega.nz/file/liJGzTBS#KPYOmh1xoja5g0ZxKKrGvMxIKt9wxX5_P6hJ_kwC1WQ
 
 ### Build instructions
 
-CLC uses the CMake build system and a top-level [Makefile](Makefile) that
+UTTC uses the CMake build system and a top-level [Makefile](Makefile) that
 invokes cmake commands as needed.
 
 #### On Linux and macOS
@@ -159,7 +159,7 @@ invokes cmake commands as needed.
 * Change to the root of the source code directory, change to the most recent release branch, and build:
 
     ```bash
-    cd CLC
+    cd uttc
     make
     ```
 
@@ -169,16 +169,16 @@ invokes cmake commands as needed.
     available per thread.
 
     *Note*: The instructions above will compile the most stable release of the
-    CLC software. If you would like to use and test the most recent software,
+    UTTC software. If you would like to use and test the most recent software,
     use ```git checkout master```. The master branch may contain updates that are
     both unstable and incompatible with release software, though testing is always
     encouraged.
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `PATH="$PATH:$HOME/CLC/build/release/bin"` to `.profile`
+* Add `PATH="$PATH:$HOME/UTTC/build/release/bin"` to `.profile`
 
-* Run CLC with `clcd --add-exclusive-node 76.245.194.107:52202`
+* Run UTTC with `uttcd --add-exclusive-node 76.245.194.107:52202`
 
 * **Optional**: build and run the test suite to verify the binaries:
 
@@ -214,7 +214,7 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * `apt-get update && apt-get upgrade` to install all of the latest software
 
-* Install the dependencies for CLC from the 'Debian' column in the table above.
+* Install the dependencies for UTTC from the 'Debian' column in the table above.
 
 * Increase the system swap size:
 
@@ -227,10 +227,10 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * If using an external hard disk without an external power supply, ensure it gets enough power to avoid hardware issues when syncing, by adding the line "max_usb_current=1" to /boot/config.txt
 
-* Clone CLC
+* Clone UTTC
 
     ```bash
-    cd CLC
+    cd uttc
     ```
 
 * Build:
@@ -243,15 +243,15 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `PATH="$PATH:$HOME/CLC/build/release/bin"` to `.profile`
+* Add `PATH="$PATH:$HOME/UTTC/build/release/bin"` to `.profile`
 
-* Run CLC with `clcd --add-exclusive-node 76.245.194.107:52202`
+* Run UTTC with `uttcd --add-exclusive-node 76.245.194.107:52202`
 
 * You may wish to reduce the size of the swap file after the build has finished, and delete the boost directory from your home directory
 
 #### *Note for Raspbian Jessie users:*
 
-If you are using the older Raspbian Jessie image, compiling CLC is a bit more complicated. The version of Boost available in the Debian Jessie repositories is too old to use with CLC, and thus you must compile a newer version yourself. The following explains the extra steps and has been tested on a Raspberry Pi 2 with a clean install of minimal Raspbian Jessie.
+If you are using the older Raspbian Jessie image, compiling UTTC is a bit more complicated. The version of Boost available in the Debian Jessie repositories is too old to use with UTTC, and thus you must compile a newer version yourself. The following explains the extra steps and has been tested on a Raspberry Pi 2 with a clean install of minimal Raspbian Jessie.
 
 * As before, `apt-get update && apt-get upgrade` to install all of the latest software, and increase the system swap size
 
@@ -263,7 +263,7 @@ If you are using the older Raspbian Jessie image, compiling CLC is a bit more co
     ```
 
 
-* Then, install the dependencies for CLC except for `libunwind` and `libboost-all-dev`
+* Then, install the dependencies for UTTC except for `libunwind` and `libboost-all-dev`
 
 * Install the latest version of boost (this may first require invoking `apt-get remove --purge libboost*-dev` to remove a previous version if you're not using a clean install):
 
@@ -284,7 +284,7 @@ If you are using the older Raspbian Jessie image, compiling CLC is a bit more co
 
 * Wait ~4 hours
 
-* From here, follow the [general Raspberry Pi instructions](#on-the-raspberry-pi) from the "Clone CLC and checkout most recent release version" step.
+* From here, follow the [general Raspberry Pi instructions](#on-the-raspberry-pi) from the "Clone UTTC and checkout most recent release version" step.
 
 #### On Windows:
 
@@ -336,7 +336,7 @@ application.
 * Change to the cloned directory, run:
 
     ```bash
-    cd CLC
+    cd uttc
     ```
 
 * If you are on a 64-bit system, run:
@@ -371,10 +371,10 @@ Run with --add-exclusive-node 76.245.194.107:52202 as your executable parameter.
 
 ### On FreeBSD:
 
-The project can be built from scratch by following instructions for Linux above(but use `gmake` instead of `make`).
-If you are running CLC in a jail, you need to add `sysvsem="new"` to your jail configuration, otherwise lmdb will throw the error message: `Failed to open lmdb environment: Function not implemented`.
+The project can be built from scratch by following instructions for Linux above(but use `gmake` instead of `make`). 
+If you are running UTTC in a jail, you need to add `sysvsem="new"` to your jail configuration, otherwise lmdb will throw the error message: `Failed to open lmdb environment: Function not implemented`.
 
-CLC is also available as a port or package as 'CLC-cli`.
+UTTC is also available as a port or package as 'UTTC-cli`.
 
 ### On OpenBSD:
 
@@ -383,9 +383,9 @@ You will need to add a few packages to your system. `pkg_add cmake gmake zeromq 
 The `doxygen` and `graphviz` packages are optional and require the xbase set.
 Running the test suite also requires `py-requests` package.
 
-Build CLC: `env DEVELOPER_LOCAL_TOOLS=1 BOOST_ROOT=/usr/local gmake release-static`
+Build UTTC: `env DEVELOPER_LOCAL_TOOLS=1 BOOST_ROOT=/usr/local gmake release-static`
 
-Note: you may encounter the following error when compiling the latest version of CLC as a normal user:
+Note: you may encounter the following error when compiling the latest version of UTTC as a normal user:
 
 ```
 LLVM ERROR: out of memory
@@ -400,7 +400,7 @@ Check that the dependencies are present: `pkg_info -c libexecinfo boost-headers 
 
 Third-party dependencies are usually under `/usr/pkg/`, but if you have a custom setup, adjust the "/usr/pkg" (below) accordingly.
 
-Clone the CLC repository recursively and checkout the most recent release as described above. Then build CLC: `gmake BOOST_ROOT=/usr/pkg LDFLAGS="-Wl,-R/usr/pkg/lib" release`.  The resulting executables can be found in `build/NetBSD/[Release version]/Release/bin/`.
+Clone the UTTC repository recursively and checkout the most recent release as described above. Then build UTTC: `gmake BOOST_ROOT=/usr/pkg LDFLAGS="-Wl,-R/usr/pkg/lib" release`.  The resulting executables can be found in `build/NetBSD/[Release version]/Release/bin/`.
 
 ### On Solaris:
 
@@ -419,13 +419,13 @@ Then you can run make as usual.
 
 ```bash
 # Build image (for ARM 32-bit)
-docker build -f utils/build_scripts/android32.Dockerfile -t CLC-android .
+docker build -f utils/build_scripts/android32.Dockerfile -t UTTC-android .
 # Build image (for ARM 64-bit)
-docker build -f utils/build_scripts/android64.Dockerfile -t CLC-android .
+docker build -f utils/build_scripts/android64.Dockerfile -t UTTC-android .
 # Create container
-docker create -it --name CLC-android CLC-android bash
+docker create -it --name UTTC-android UTTC-android bash
 # Get binaries
-docker cp CLC-android:/src/build/release/bin .
+docker cp UTTC-android:/src/build/release/bin .
 ```
 
 ### Building portable statically linked binaries
@@ -467,21 +467,21 @@ You can also cross-compile static binaries on Linux for Windows and macOS with t
 
 The required packages are the names for each toolchain on apt. Depending on your distro, they may have different names.
 
-Using `depends` might also be easier to compile CLC on Windows than using MSYS. Activate Windows Subsystem for Linux (WSL) with a distro (for example Ubuntu), install the apt build-essentials and follow the `depends` steps as depicted above.
+Using `depends` might also be easier to compile UTTC on Windows than using MSYS. Activate Windows Subsystem for Linux (WSL) with a distro (for example Ubuntu), install the apt build-essentials and follow the `depends` steps as depicted above.
 
 The produced binaries still link libc dynamically. If the binary is compiled on a current distribution, it might not run on an older distribution with an older installation of libc. Passing `-DBACKCOMPAT=ON` to cmake will make sure that the binary will run on systems having at least libc version 2.17.
 
-## Running clcd
+## Running uttcd
 
 The build places the binary in `bin/` sub-directory within the build directory
 from which cmake was invoked (repository root by default). To run in the
 foreground:
 
 ```bash
-./bin/clcd
+./bin/uttcd
 ```
 
-To list all available options, run `./bin/clcd --help`.  Options can be
+To list all available options, run `./bin/UTTCd --help`.  Options can be
 specified either on the command line or in a configuration file passed by the
 `--config-file` argument.  To specify an option in the configuration file, add
 a line with the syntax `argumentname=value`, where `argumentname` is the name
@@ -490,18 +490,18 @@ of the argument without the leading dashes, for example, `log-level=1`.
 To run in background:
 
 ```bash
-./bin/clcd --log-file clcd.log --add-exclusive-node 76.245.194.107:52202
+./bin/uttcd --log-file uttcd.log --add-exclusive-node 76.245.194.107:52202
 ```
 
 To run as a systemd service, copy
-[clcd.service](utils/systemd/clcd.service) to `/etc/systemd/system/` and
-[clcd.conf](utils/conf/clcd.conf) to `/etc/`. The [example
-service](utils/systemd/clcd.service) assumes that the user `CLC` exists
+[UTTCd.service](utils/systemd/UTTCd.service) to `/etc/systemd/system/` and
+[UTTCd.conf](utils/conf/UTTCd.conf) to `/etc/`. The [example
+service](utils/systemd/UTTCd.service) assumes that the user `UTTC` exists
 and its home is the data directory specified in the [example
-config](utils/conf/clcd.conf).
+config](utils/conf/UTTCd.conf).
 
 If you're on Mac, you may need to add the `--max-concurrency 1` option to
-CLC-wallet-cli, and possibly clcd, if you get crashes refreshing.
+UTTC-wallet-cli, and possibly UTTCd, if you get crashes refreshing.
 
 ## Internationalization
 
@@ -515,32 +515,32 @@ See [README.i18n.md](README.i18n.md).
 > used solely for relaying transactions received over local RPC. This provides
 > privacy and better protection against surrounding node (sybil) attacks.
 
-While CLC isn't made to integrate with Tor, it can be used wrapped with torsocks, by
+While UTTC isn't made to integrate with Tor, it can be used wrapped with torsocks, by
 setting the following configuration parameters and environment variables:
 
 * `--p2p-bind-ip 127.0.0.1` on the command line or `p2p-bind-ip=127.0.0.1` in
-  clcd.conf to disable listening for connections on external interfaces.
-* `--no-igd` on the command line or `no-igd=1` in clcd.conf to disable IGD
+  UTTCd.conf to disable listening for connections on external interfaces.
+* `--no-igd` on the command line or `no-igd=1` in UTTCd.conf to disable IGD
   (UPnP port forwarding negotiation), which is pointless with Tor.
 * `DNS_PUBLIC=tcp` or `DNS_PUBLIC=tcp://x.x.x.x` where x.x.x.x is the IP of the
   desired DNS server, for DNS requests to go over TCP, so that they are routed
-  through Tor. When IP is not specified, clcd uses the default list of
+  through Tor. When IP is not specified, UTTCd uses the default list of
   servers defined in [src/common/dns_utils.cpp](src/common/dns_utils.cpp).
-* `TORSOCKS_ALLOW_INBOUND=1` to tell torsocks to allow clcd to bind to interfaces
+* `TORSOCKS_ALLOW_INBOUND=1` to tell torsocks to allow UTTCd to bind to interfaces
    to accept connections from the wallet. On some Linux systems, torsocks
    allows binding to localhost by default, so setting this variable is only
    necessary to allow binding to local LAN/VPN interfaces to allow wallets to
    connect from remote hosts. On other systems, it may be needed for local wallets
    as well.
 * Do NOT pass `--detach` when running through torsocks with systemd, (see
-  [utils/systemd/clcd.service](utils/systemd/clcd.service) for details).
+  [utils/systemd/UTTCd.service](utils/systemd/UTTCd.service) for details).
 * If you use the wallet with a Tor daemon via the loopback IP (eg, 127.0.0.1:9050),
   then use `--untrusted-daemon` unless it is your own hidden service.
 
-Example command line to start clcd through Tor:
+Example command line to start UTTCd through Tor:
 
 ```bash
-DNS_PUBLIC=tcp torsocks clcd --p2p-bind-ip 127.0.0.1 --no-igd --add-exclusive-node 76.245.194.107:52202
+DNS_PUBLIC=tcp torsocks uttcd --p2p-bind-ip 127.0.0.1 --no-igd --add-exclusive-node 76.245.194.107:52202
 ```
 
 ### Using Tor on Tails
@@ -551,23 +551,23 @@ allow inbound connections. Full example:
 
 ```bash
 sudo iptables -I OUTPUT 2 -p tcp -d 127.0.0.1 -m tcp --dport 18081 -j ACCEPT
-DNS_PUBLIC=tcp torsocks ./clcd --p2p-bind-ip 127.0.0.1 --no-igd --rpc-bind-ip 127.0.0.1 \
+DNS_PUBLIC=tcp torsocks ./UTTCd --p2p-bind-ip 127.0.0.1 --no-igd --rpc-bind-ip 127.0.0.1 \
     --data-dir /home/amnesia/Persistent/your/directory/to/the/blockchain
 ```
 
 ## Pruning
 
-As of May 2020, the full CLC blockchain file is about 80 GB. One can store a pruned blockchain, which is about 28 GB.
+As of May 2020, the full UTTC blockchain file is about 80 GB. One can store a pruned blockchain, which is about 28 GB.
 A pruned blockchain can only serve part of the historical chain data to other peers, but is otherwise identical in
 functionality to the full blockchain.
 To use a pruned blockchain, it is best to start the initial sync with --prune-blockchain. However, it is also possible
-to prune an existing blockchain using the CLC-blockchain-prune tool or using the --prune-blockchain clcd option
+to prune an existing blockchain using the UTTC-blockchain-prune tool or using the --prune-blockchain UTTCd option
 with an existing chain. If an existing chain exists, pruning will temporarily require disk space to store both the full
 and pruned blockchains.
 
 ## Debugging
 
-This section contains general instructions for debugging failed installs or problems encountered with CLC. First, ensure you are running the latest version built from the Github repo.
+This section contains general instructions for debugging failed installs or problems encountered with UTTC. First, ensure you are running the latest version built from the Github repo.
 
 ### Obtaining stack traces and core dumps on Unix systems
 
@@ -580,7 +580,7 @@ Run the build.
 Once it stalls, enter the following command:
 
 ```bash
-gdb /path/to/clcd `pidof clcd`
+gdb /path/to/uttcd `pidof uttcd`
 ```
 
 Type `thread apply all bt` within gdb in order to obtain the stack trace
@@ -593,12 +593,12 @@ Enter `echo core | sudo tee /proc/sys/kernel/core_pattern` to stop cores from be
 
 Run the build.
 
-When it terminates with an output along the lines of "Segmentation fault (core dumped)", there should be a core dump file in the same directory as clcd. It may be named just `core`, or `core.xxxx` with numbers appended.
+When it terminates with an output along the lines of "Segmentation fault (core dumped)", there should be a core dump file in the same directory as UTTCd. It may be named just `core`, or `core.xxxx` with numbers appended.
 
 You can now analyse this core dump with `gdb` as follows:
 
 ```bash
-gdb /path/to/clcd /path/to/dumpfile`
+gdb /path/to/uttcd /path/to/dumpfile`
 ```
 
 Print the stack trace with `bt`
@@ -609,13 +609,13 @@ Print the stack trace with `bt`
 coredumpctl -1 gdb
 ```
 
-#### To run CLC within gdb:
+#### To run UTTC within gdb:
 
-Type `gdb /path/to/clcd`
+Type `gdb /path/to/uttcd`
 
 Pass command-line options with `--args` followed by the relevant arguments
 
-Type `run` to run clcd
+Type `run` to run UTTCd
 
 ### Analysing memory corruption
 
@@ -623,17 +623,17 @@ There are two tools available:
 
 #### ASAN
 
-Configure CLC with the -D SANITIZE=ON cmake flag, eg:
+Configure UTTC with the -D SANITIZE=ON cmake flag, eg:
 
 ```bash
 cd build/debug && cmake -D SANITIZE=ON -D CMAKE_BUILD_TYPE=Debug ../..
 ```
 
-You can then run the CLC tools normally. Performance will typically halve.
+You can then run the UTTC tools normally. Performance will typically halve.
 
 #### valgrind
 
-Install valgrind and run as `valgrind /path/to/clcd`. It will be very slow.
+Install valgrind and run as `valgrind /path/to/UTTCd`. It will be very slow.
 
 ### LMDB
 
@@ -642,7 +642,7 @@ Instructions for debugging suspected blockchain corruption as per @HYC
 There is an `mdb_stat` command in the LMDB source that can print statistics about the database but it's not routinely built. This can be built with the following command:
 
 ```bash
-cd ~/CLC/external/db_drivers/liblmdb && make
+cd ~/UTTC/external/db_drivers/liblmdb && make
 ```
 
 The output of `mdb_stat -ea <path to blockchain dir>` will indicate inconsistencies in the blocks, block_heights and block_info table.
@@ -653,19 +653,19 @@ These records are dumped as hex data, where the first line is the key and the se
 
 # Known Issues
 
-We do not have seed nodes yet.  When you start `clcd` you must use `--add-exclusive-node 76.245.194.107:52202` to connect to the master node and sync the correct blockchain.
+We do not have seed nodes yet.  When you start `uttcd` you must use `--add-exclusive-node 76.245.194.107:52202` to connect to the master node and sync the correct blockchain.
 
 ## Protocols
 
 ### Socket-based
 
-Because of the nature of the socket-based protocols that drive CLC, certain protocol weaknesses are somewhat unavoidable at this time. While these weaknesses can theoretically be fully mitigated, the effort required (the means) may not justify the ends. As such, please consider taking the following precautions if you are a CLC node operator:
+Because of the nature of the socket-based protocols that drive UTTC, certain protocol weaknesses are somewhat unavoidable at this time. While these weaknesses can theoretically be fully mitigated, the effort required (the means) may not justify the ends. As such, please consider taking the following precautions if you are a UTTC node operator:
 
-- Run `clcd` on a "secured" machine. If operational security is not your forte, at a very minimum, have a dedicated a computer running `clcd` and **do not** browse the web, use email clients, or use any other potentially harmful apps on your `clcd` machine. **Do not click links or load URL/MUA content on the same machine**. Doing so may potentially exploit weaknesses in commands which accept "localhost" and "127.0.0.1".
-- If you plan on hosting a public "remote" node, start `clcd` with `--restricted-rpc`. This is a must.
+- Run `uttcd` on a "secured" machine. If operational security is not your forte, at a very minimum, have a dedicated a computer running `uttcd` and **do not** browse the web, use email clients, or use any other potentially harmful apps on your `UTTCd` machine. **Do not click links or load URL/MUA content on the same machine**. Doing so may potentially exploit weaknesses in commands which accept "localhost" and "127.0.0.1".
+- If you plan on hosting a public "remote" node, start `uttcd` with `--restricted-rpc`. This is a must.
 
 ### Blockchain-based
 
 Certain blockchain "features" can be considered "bugs" if misused correctly. Consequently, please consider the following:
 
-- When receiving CLC, be aware that it may be locked for an arbitrary time if the sender elected to, preventing you from spending that CLC until the lock time expires. You may want to hold off acting upon such a transaction until the unlock time lapses. To get a sense of that time, you can consider the remaining blocktime until unlock as seen in the `show_transfers` command.
+- When receiving UTTC, be aware that it may be locked for an arbitrary time if the sender elected to, preventing you from spending that UTTC until the lock time expires. You may want to hold off acting upon such a transaction until the unlock time lapses. To get a sense of that time, you can consider the remaining blocktime until unlock as seen in the `show_transfers` command.
