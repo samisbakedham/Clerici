@@ -179,8 +179,8 @@ int main(int argc, char const * argv[])
   try {
 	// Print our fork's genesis block, comment out after modifying cryptonote_config.h GENESIS_TX constant
 	// Be sure all GENESIS_TX constants are EMPTY, e.g. = ""; before un-commenting the next 2 lines below
-	print_genesis_tx_hex(0);    // 0 for mainnet, 1 for testnet
-	return 0;		    // building both is optional, testnet can adopt mainnet genesis TX hash.
+	//print_genesis_tx_hex(0);    // 0 for mainnet, 1 for testnet
+	//return 0;		    // building both is optional, testnet can adopt mainnet genesis TX hash.
 
     // TODO parse the debug options like set log level right here at start
 

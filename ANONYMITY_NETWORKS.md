@@ -1,6 +1,6 @@
-# Anonymity Networks with UTTC
+# Anonymity Networks with CLC
 
-Currently only Tor and I2P have been integrated into UTTC. The usage of
+Currently only Tor and I2P have been integrated into CLC. The usage of
 these networks is still considered experimental - there are a few pessimistic
 cases where privacy is leaked. The design is intended to maximize privacy of
 the source of a transaction by broadcasting it over an anonymity network, while
@@ -16,11 +16,11 @@ will only be sent to peers on anonymity networks. If an anonymity network is
 enabled but no peers over an anonymity network are available, an error is
 logged and the transaction is kept for future broadcasting over an anonymity
 network. The transaction will not be broadcast unless an anonymity connection
-is made or until `uttcd` is shutdown and restarted with only public
+is made or until `clcd` is shutdown and restarted with only public
 connections enabled.
 
-Anonymity networks can also be used with `uttc-wallet-cli` and
-`uttc-wallet-rpc` - the wallets will connect to a daemon through a proxy. The
+Anonymity networks can also be used with `clc-wallet-cli` and
+`clc-wallet-rpc` - the wallets will connect to a daemon through a proxy. The
 daemon must provide a hidden service for the RPC itself, which is separate from
 the hidden service for P2P connections.
 
@@ -39,7 +39,7 @@ with additional exclusive IPv4 address(es).
 ### Outbound Connections
 
 Connecting to an anonymous address requires the command line option
-`--tx-proxy` which tells `uttcd` the ip/port of a socks proxy provided by a
+`--tx-proxy` which tells `clcd` the ip/port of a socks proxy provided by a
 separate process. On most systems the configuration will look like:
 
 ```
@@ -47,7 +47,7 @@ separate process. On most systems the configuration will look like:
 --tx-proxy i2p,127.0.0.1:9000
 ```
 
-which tells `uttcd` that ".onion" p2p addresses can be forwarded to a socks
+which tells `clcd` that ".onion" p2p addresses can be forwarded to a socks
 proxy at IP 127.0.0.1 port 9050 with a max of 10 outgoing connections and
 ".b32.i2p" p2p addresses can be forwarded to a socks proxy at IP 127.0.0.1 port
 9000 with the default max outgoing connections.
@@ -66,7 +66,7 @@ seed nodes on ALL networks, which will typically be undesirable.
 ### Inbound Connections
 
 Receiving anonymity connections is done through the option
-`--anonymous-inbound`. This option tells `uttcd` the inbound address, network
+`--anonymous-inbound`. This option tells `clcd` the inbound address, network
 type, and max connections:
 
 ```
@@ -74,24 +74,24 @@ type, and max connections:
 --anonymous-inbound cmeua5767mz2q5jsaelk2rxhf67agrwuetaso5dzbenyzwlbkg2q.b32.i2p:5000,127.0.0.1:30000
 ```
 
-which tells `uttcd` that a max of 25 inbound Tor connections are being
-received at address "rveahdfho7wo4b2m.onion:28083" and forwarded to `uttcd`
+which tells `clcd` that a max of 25 inbound Tor connections are being
+received at address "rveahdfho7wo4b2m.onion:28083" and forwarded to `clcd`
 localhost port 28083, and a default max I2P connections are being received at
 address "cmeua5767mz2q5jsaelk2rxhf67agrwuetaso5dzbenyzwlbkg2q.b32.i2p:5000" and
-forwarded to `uttcd` localhost port 30000.
+forwarded to `clcd` localhost port 30000.
 These addresses will be shared with outgoing peers, over the same network type,
 otherwise the peer will not be notified of the peer address by the proxy.
 
 ### Wallet RPC
 
 An anonymity network can be configured to forward incoming connections to a
-`uttcd` RPC port - which is independent from the configuration for incoming
+`clcd` RPC port - which is independent from the configuration for incoming
 P2P anonymity connections. The anonymity network (Tor/i2p) is
 [configured in the same manner](#configuration), except the localhost port
 must be the RPC port (typically 18081 for mainnet) instead of the p2p port:
 
 ```
-HiddenServiceDir /var/lib/tor/data/UTTC
+HiddenServiceDir /var/lib/tor/data/CLC
 HiddenServicePort 18081 127.0.0.1:18081
 ```
 

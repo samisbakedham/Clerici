@@ -61,7 +61,7 @@ As with many development projects, the repository on Github is considered to be 
 
 CLC is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially.
 
-The CLC donation address is: `UttcHXznLV62RLPhpq7v3e9qsEf9vNq4TZ85KjKh4w18GtP4qipYMLbCSKxxS9Yt9AJ95nUrCQVCdSLzepwDrKX42ATvb1oQYt`  viewkey (7edb969e28446019dcfcd2b13d667830fe8fd2d8ba9786b567e497d6bf1eb1bc)
+The CLC donation address is: `CLCHXznLV62RLPhpq7v3e9qsEf9vNq4TZ85KjKh4w18GtP4qipYMLbCSKxxS9Yt9AJ95nUrCQVCdSLzepwDrKX42ATvb1oQYt`  viewkey (7edb969e28446019dcfcd2b13d667830fe8fd2d8ba9786b567e497d6bf1eb1bc)
 
 ## License
 
@@ -159,7 +159,7 @@ invokes cmake commands as needed.
 * Change to the root of the source code directory, change to the most recent release branch, and build:
 
     ```bash
-    cd uttc
+    cd clc
     make
     ```
 
@@ -178,7 +178,7 @@ invokes cmake commands as needed.
 
 * Add `PATH="$PATH:$HOME/CLC/build/release/bin"` to `.profile`
 
-* Run CLC with `uttcd --add-exclusive-node 76.245.194.107:52202`
+* Run CLC with `clcd --add-exclusive-node 76.245.194.107:52202`
 
 * **Optional**: build and run the test suite to verify the binaries:
 
@@ -230,7 +230,7 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 * Clone CLC
 
     ```bash
-    cd uttc
+    cd clc
     ```
 
 * Build:
@@ -245,7 +245,7 @@ Tested on a Raspberry Pi Zero with a clean install of minimal Raspbian Stretch (
 
 * Add `PATH="$PATH:$HOME/CLC/build/release/bin"` to `.profile`
 
-* Run CLC with `uttcd --add-exclusive-node 76.245.194.107:52202`
+* Run CLC with `clcd --add-exclusive-node 76.245.194.107:52202`
 
 * You may wish to reduce the size of the swap file after the build has finished, and delete the boost directory from your home directory
 
@@ -336,7 +336,7 @@ application.
 * Change to the cloned directory, run:
 
     ```bash
-    cd uttc
+    cd clc
     ```
 
 * If you are on a 64-bit system, run:
@@ -471,17 +471,17 @@ Using `depends` might also be easier to compile CLC on Windows than using MSYS. 
 
 The produced binaries still link libc dynamically. If the binary is compiled on a current distribution, it might not run on an older distribution with an older installation of libc. Passing `-DBACKCOMPAT=ON` to cmake will make sure that the binary will run on systems having at least libc version 2.17.
 
-## Running uttcd
+## Running clcd
 
 The build places the binary in `bin/` sub-directory within the build directory
 from which cmake was invoked (repository root by default). To run in the
 foreground:
 
 ```bash
-./bin/uttcd
+./bin/clcd
 ```
 
-To list all available options, run `./bin/UTTCd --help`.  Options can be
+To list all available options, run `./bin/clcd --help`.  Options can be
 specified either on the command line or in a configuration file passed by the
 `--config-file` argument.  To specify an option in the configuration file, add
 a line with the syntax `argumentname=value`, where `argumentname` is the name
@@ -490,18 +490,18 @@ of the argument without the leading dashes, for example, `log-level=1`.
 To run in background:
 
 ```bash
-./bin/uttcd --log-file uttcd.log --add-exclusive-node 76.245.194.107:52202
+./bin/clcd --log-file clcd.log --add-exclusive-node 76.245.194.107:52202
 ```
 
 To run as a systemd service, copy
-[UTTCd.service](utils/systemd/UTTCd.service) to `/etc/systemd/system/` and
-[UTTCd.conf](utils/conf/UTTCd.conf) to `/etc/`. The [example
-service](utils/systemd/UTTCd.service) assumes that the user `CLC` exists
+[clcd.service](utils/systemd/clcd.service) to `/etc/systemd/system/` and
+[clcd.conf](utils/conf/clcd.conf) to `/etc/`. The [example
+service](utils/systemd/clcd.service) assumes that the user `CLC` exists
 and its home is the data directory specified in the [example
-config](utils/conf/UTTCd.conf).
+config](utils/conf/clcd.conf).
 
 If you're on Mac, you may need to add the `--max-concurrency 1` option to
-CLC-wallet-cli, and possibly UTTCd, if you get crashes refreshing.
+CLC-wallet-cli, and possibly CLCd, if you get crashes refreshing.
 
 ## Internationalization
 
@@ -519,28 +519,28 @@ While CLC isn't made to integrate with Tor, it can be used wrapped with torsocks
 setting the following configuration parameters and environment variables:
 
 * `--p2p-bind-ip 127.0.0.1` on the command line or `p2p-bind-ip=127.0.0.1` in
-  UTTCd.conf to disable listening for connections on external interfaces.
-* `--no-igd` on the command line or `no-igd=1` in UTTCd.conf to disable IGD
+  CLCd.conf to disable listening for connections on external interfaces.
+* `--no-igd` on the command line or `no-igd=1` in CLCd.conf to disable IGD
   (UPnP port forwarding negotiation), which is pointless with Tor.
 * `DNS_PUBLIC=tcp` or `DNS_PUBLIC=tcp://x.x.x.x` where x.x.x.x is the IP of the
   desired DNS server, for DNS requests to go over TCP, so that they are routed
-  through Tor. When IP is not specified, UTTCd uses the default list of
+  through Tor. When IP is not specified, CLCd uses the default list of
   servers defined in [src/common/dns_utils.cpp](src/common/dns_utils.cpp).
-* `TORSOCKS_ALLOW_INBOUND=1` to tell torsocks to allow UTTCd to bind to interfaces
+* `TORSOCKS_ALLOW_INBOUND=1` to tell torsocks to allow CLCd to bind to interfaces
    to accept connections from the wallet. On some Linux systems, torsocks
    allows binding to localhost by default, so setting this variable is only
    necessary to allow binding to local LAN/VPN interfaces to allow wallets to
    connect from remote hosts. On other systems, it may be needed for local wallets
    as well.
 * Do NOT pass `--detach` when running through torsocks with systemd, (see
-  [utils/systemd/UTTCd.service](utils/systemd/UTTCd.service) for details).
+  [utils/systemd/CLCd.service](utils/systemd/CLCd.service) for details).
 * If you use the wallet with a Tor daemon via the loopback IP (eg, 127.0.0.1:9050),
   then use `--untrusted-daemon` unless it is your own hidden service.
 
-Example command line to start UTTCd through Tor:
+Example command line to start CLCd through Tor:
 
 ```bash
-DNS_PUBLIC=tcp torsocks uttcd --p2p-bind-ip 127.0.0.1 --no-igd --add-exclusive-node 76.245.194.107:52202
+DNS_PUBLIC=tcp torsocks clcd --p2p-bind-ip 127.0.0.1 --no-igd --add-exclusive-node 76.245.194.107:52202
 ```
 
 ### Using Tor on Tails
@@ -551,7 +551,7 @@ allow inbound connections. Full example:
 
 ```bash
 sudo iptables -I OUTPUT 2 -p tcp -d 127.0.0.1 -m tcp --dport 18081 -j ACCEPT
-DNS_PUBLIC=tcp torsocks ./UTTCd --p2p-bind-ip 127.0.0.1 --no-igd --rpc-bind-ip 127.0.0.1 \
+DNS_PUBLIC=tcp torsocks ./CLCd --p2p-bind-ip 127.0.0.1 --no-igd --rpc-bind-ip 127.0.0.1 \
     --data-dir /home/amnesia/Persistent/your/directory/to/the/blockchain
 ```
 
@@ -561,7 +561,7 @@ As of May 2020, the full CLC blockchain file is about 80 GB. One can store a pru
 A pruned blockchain can only serve part of the historical chain data to other peers, but is otherwise identical in
 functionality to the full blockchain.
 To use a pruned blockchain, it is best to start the initial sync with --prune-blockchain. However, it is also possible
-to prune an existing blockchain using the CLC-blockchain-prune tool or using the --prune-blockchain UTTCd option
+to prune an existing blockchain using the CLC-blockchain-prune tool or using the --prune-blockchain CLCd option
 with an existing chain. If an existing chain exists, pruning will temporarily require disk space to store both the full
 and pruned blockchains.
 
@@ -580,7 +580,7 @@ Run the build.
 Once it stalls, enter the following command:
 
 ```bash
-gdb /path/to/uttcd `pidof uttcd`
+gdb /path/to/clcd `pidof clcd`
 ```
 
 Type `thread apply all bt` within gdb in order to obtain the stack trace
@@ -593,12 +593,12 @@ Enter `echo core | sudo tee /proc/sys/kernel/core_pattern` to stop cores from be
 
 Run the build.
 
-When it terminates with an output along the lines of "Segmentation fault (core dumped)", there should be a core dump file in the same directory as UTTCd. It may be named just `core`, or `core.xxxx` with numbers appended.
+When it terminates with an output along the lines of "Segmentation fault (core dumped)", there should be a core dump file in the same directory as CLCd. It may be named just `core`, or `core.xxxx` with numbers appended.
 
 You can now analyse this core dump with `gdb` as follows:
 
 ```bash
-gdb /path/to/uttcd /path/to/dumpfile`
+gdb /path/to/clcd /path/to/dumpfile`
 ```
 
 Print the stack trace with `bt`
@@ -611,11 +611,11 @@ coredumpctl -1 gdb
 
 #### To run CLC within gdb:
 
-Type `gdb /path/to/uttcd`
+Type `gdb /path/to/clcd`
 
 Pass command-line options with `--args` followed by the relevant arguments
 
-Type `run` to run UTTCd
+Type `run` to run CLCd
 
 ### Analysing memory corruption
 
@@ -633,7 +633,7 @@ You can then run the CLC tools normally. Performance will typically halve.
 
 #### valgrind
 
-Install valgrind and run as `valgrind /path/to/UTTCd`. It will be very slow.
+Install valgrind and run as `valgrind /path/to/CLCd`. It will be very slow.
 
 ### LMDB
 
@@ -653,7 +653,7 @@ These records are dumped as hex data, where the first line is the key and the se
 
 # Known Issues
 
-We do not have seed nodes yet.  When you start `uttcd` you must use `--add-exclusive-node 76.245.194.107:52202` to connect to the master node and sync the correct blockchain.
+We do not have seed nodes yet.  When you start `clcd` you must use `--add-exclusive-node 76.245.194.107:52202` to connect to the master node and sync the correct blockchain.
 
 ## Protocols
 
@@ -661,8 +661,8 @@ We do not have seed nodes yet.  When you start `uttcd` you must use `--add-exclu
 
 Because of the nature of the socket-based protocols that drive CLC, certain protocol weaknesses are somewhat unavoidable at this time. While these weaknesses can theoretically be fully mitigated, the effort required (the means) may not justify the ends. As such, please consider taking the following precautions if you are a CLC node operator:
 
-- Run `uttcd` on a "secured" machine. If operational security is not your forte, at a very minimum, have a dedicated a computer running `uttcd` and **do not** browse the web, use email clients, or use any other potentially harmful apps on your `UTTCd` machine. **Do not click links or load URL/MUA content on the same machine**. Doing so may potentially exploit weaknesses in commands which accept "localhost" and "127.0.0.1".
-- If you plan on hosting a public "remote" node, start `uttcd` with `--restricted-rpc`. This is a must.
+- Run `clcd` on a "secured" machine. If operational security is not your forte, at a very minimum, have a dedicated a computer running `clcd` and **do not** browse the web, use email clients, or use any other potentially harmful apps on your `CLCd` machine. **Do not click links or load URL/MUA content on the same machine**. Doing so may potentially exploit weaknesses in commands which accept "localhost" and "127.0.0.1".
+- If you plan on hosting a public "remote" node, start `clcd` with `--restricted-rpc`. This is a must.
 
 ### Blockchain-based
 
