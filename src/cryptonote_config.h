@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2020, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -25,7 +25,7 @@
 // INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// 
+//
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #pragma once
@@ -156,7 +156,7 @@
 
 #define RPC_IP_FAILS_BEFORE_BLOCK                       3
 
-#define CRYPTONOTE_NAME                         "UTTC"
+#define CRYPTONOTE_NAME                         "CLC"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME      "data.mdb"
 #define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
 #define P2P_NET_DATA_FILENAME                   "p2pstate.bin"
@@ -208,17 +208,17 @@ namespace config
   uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)2000000000); // 2 * pow(10, 9)
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
 
-  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x1be2a6;
-  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x1ee2a6;
-  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x23a2a6;
-  uint16_t const P2P_DEFAULT_PORT = 52202;
-  uint16_t const RPC_DEFAULT_PORT = 52303;
-  uint16_t const ZMQ_RPC_DEFAULT_PORT = 52404;
+  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0xd7;
+  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x7b54;
+  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x77d4;
+  uint16_t const P2P_DEFAULT_PORT = 28080;
+  uint16_t const RPC_DEFAULT_PORT = 28081;
+  uint16_t const ZMQ_RPC_DEFAULT_PORT = 28082;
   boost::uuids::uuid const NETWORK_ID = { {
-      0xAF ,0xAF, 0xF1, 0x71 , 0x61, 0x04 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xAF, 0xAF
+      0x05 ,0x30, 0x04, 0x06 , 0x13, 0x03 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xAF, 0xAF
     } }; // Bender's nightmare
-  std::string const GENESIS_TX = "010301ff0006ff9fdb5802f84812e2e426306cc0f28eb046432b5f9be5fd1c680571486cf5ebf238a9cbf380a8d6b907020a350f44ca9ef521837af5fec60c0e86c3c29dd9cfbad046f395b18f28b341258088aca3cf02021155eed651e1753846bd1754d3bec0d8cdaa9dd10ce41f845101cf9bf40f6ad18090cad2c60e024f0b7716261cb8d00b46202a64d4d08f496145a188b7b8a7870c8555c531c68d80e08d84ddcb0102c402f02a364bfc0dbec7c4e50a446c592bee16dfc2193211f549a11b89e101ce80c0caf384a30202f3694199d17bc51bf690735148544765fc4ec8fb0e496e5a452ffbba2d473d5621015cb26b4829af5d9564177b2d4f90f0262b06da09de69d84d5b7b0a79d70a8b62";
-  uint32_t const GENESIS_NONCE = 42069;
+  std::string const GENESIS_TX = "";
+  uint32_t const GENESIS_NONCE = 534;
 
   // Hash domain separators
   const char HASH_KEY_BULLETPROOF_EXPONENT[] = "bulletproof";
@@ -234,7 +234,7 @@ namespace config
   const unsigned char HASH_KEY_CLSAG_ROUND[] = "CLSAG_round";
   const unsigned char HASH_KEY_CLSAG_AGG_0[] = "CLSAG_agg_0";
   const unsigned char HASH_KEY_CLSAG_AGG_1[] = "CLSAG_agg_1";
-  const char HASH_KEY_MESSAGE_SIGNING[] = "UTTCMessageSignature";
+  const char HASH_KEY_MESSAGE_SIGNING[] = "CLCMessageSignature";
 
   namespace testnet
   {
